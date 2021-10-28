@@ -1,0 +1,78 @@
+/* Formatações Gerais */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: .1s;
+    color: #000000;
+    list-style: none;
+}
+
+body {
+    font-family: Roboto, sans-serif;
+    font-size: 16px;
+}
+
+/* Formatações no header */
+header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid blue;
+    padding: 1%;
+}
+
+header a img {
+    width: 100px;
+}
+
+/* Formatações do Main */
+main {
+    display: flex;
+    height: calc(100vh - 134px);
+    padding: 1%;
+}
+
+main section {
+    display: flex;
+    padding: 1%;
+}
+
+/* Formatações área do request */
+main section#request {
+    flex-direction: column;
+    width: 60%;
+    border: 1px solid black;
+}
+
+main section#request div#request-header {
+    display: flex;
+    height: 40px;
+}
+
+main section#request div#request-header select {
+    width: 14%;
+    border-radius: 5px 0 0 5px;
+    text-indent: 5px;
+}
+
+main section#request div#request-header select option {
+    margin: 20px;
+    color: red;
+}
+
+main section#request div#request-header input {
+    width: 75%;
+    padding-left: 10px;
+}
+
+main section#request div#request-header button {
+    width: 15%;
+}
+
+/* Formatações área do response */
+main section#response {
+    width: 40%;
+    border: 1px solid green;
+}

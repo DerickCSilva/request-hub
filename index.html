@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./img/icon-rocket.png" type="image/x-icon">
+    <title>RequestHub</title>
+</head>
+<body>
+    <header>
+        <a href="./index.html">
+            <img src="./img/icon-rocket.png" alt="RequestHub Icon">
+            <h2>RequestHub</h2>
+        </a>
+    </header>
+    <main>
+        <section id="request">
+            <div id="request-header">
+                <select name="method" id="method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PUT">PUT</option>
+                    <option value="PATCH">PATCH</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+                <input type="text" name="uri" id="uri">
+                <button>Send</button>
+            </div>
+            <div id="request-configs">
+                <ul>
+                    <li>Params</li>
+                    <li>Authorization</li>
+                    <li>Headers</li>
+                    <li>Body</li>
+                </ul>
+            </div>
+        </section>
+        <section id="response">
+
+        </section>
+    </main>
+</body>
+</html>
