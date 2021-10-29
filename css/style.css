@@ -30,7 +30,7 @@ header a img {
 /* Formatações do Main */
 main {
     display: flex;
-    height: calc(100vh - 134px);
+    height: calc(100vh - 161px);
     padding: 1%;
 }
 
@@ -65,10 +65,15 @@ main section#request div#request-header select option {
 main section#request div#request-header input {
     width: 75%;
     padding-left: 10px;
+    font-size: 16px;
 }
 
 main section#request div#request-header button {
     width: 15%;
+    margin-left: 10px;
+    border: none;
+    background-color: #2E2EFE;
+    color: #FFFFFF;
 }
 
 /* Formatações área do response */
