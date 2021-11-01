@@ -37,8 +37,8 @@
                     <li>Body</li>
                 </ul>
             </div>
-            <div id="area-params">
-                <div id="add-param">
+            <div class="area-default" style="display: none;">
+                <div class="add-key-value">
                     <button>
                         <i class="fas fa-plus-circle"></i>
                         <span>Adicionar parâmetro</span>
@@ -63,17 +63,63 @@
                     </div>
                 </div>
             </div>
+            <div class="area-default" style="display: none;">
+                <div class="add-key-value">
+                    <button>
+                        <i class="fas fa-plus-circle"></i>
+                        <span>Adicionar header</span>
+                    </button>
+                </div>
+                <div id="params">
+                    <div id="header-key-value">
+                        <span id="tag-key">Key</span>
+                        <span id="tag-value">Value</span>
+                    </div>
+                    <div class="values">
+                        <input class="key" type="text" name="key" id="key" placeholder="Key">
+                        <input class="value" type="text" name="value" id="value" placeholder="Value">
+                    </div>
+                    <div class="values">
+                        <input class="key" type="text" name="key" id="key" placeholder="Key">
+                        <input class="value" type="text" name="value" id="value" placeholder="Value">
+                    </div>
+                    <div class="values">
+                        <input class="key" type="text" name="key" id="key" placeholder="Key">
+                        <input class="value" type="text" name="value" id="value" placeholder="Value">
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-default">
+                <div id="req">{
+    
+}</div>
+            </div>
         </section>
         <section id="area-response">
             <h2>Response</h2>
-            <div id="response"></div>
+            <div id="response-infos">
+                <span class="item">Status: 200 ok</span>
+            </div>
+            <div id="res"></div>
         </section>
     </main>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/9e997cf440.js" crossorigin="anonymous"></script>
 <script src="./src/ace.js"></script>
+
 <script>
-    let response;
+    let request = ace.edit('req', {
+        mode: 'ace/mode/json',
+        theme: 'ace/theme/clouds'
+    });
+
+    let response = ace.edit('res', {
+        mode: 'ace/mode/json',
+        theme: 'ace/theme/clouds',
+        readOnly: true
+    });
 </script>
+
 </html>

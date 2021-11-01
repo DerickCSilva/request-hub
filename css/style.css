@@ -132,30 +132,30 @@ section#request div#request-configs ul li.active::after {
 }
 
 /* Formatações da área dos area-params */
-section#request div#area-params {
+section#request div.area-default {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
 }
 
-section#request div#area-params div#add-param {
+section#request div.area-default div.add-key-value {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     width: 100%;
 }
 
-section#request div#area-params div#add-param button {
+section#request div.area-default div.add-key-value button {
     background-color: #FFFFFF;
     border: none;
     transition: .2s;
 }
 
-section#request div#area-params div#add-param button:hover {
+section#request div.area-default div.add-key-value button:hover {
     transform: scale(1.05);
 }
 
-section#request div#area-params div#params div#header-key-value {
+section#request div.area-default div#params div#header-key-value {
     display: flex;
     width: 100%;
     border: 1px solid gray;
@@ -163,43 +163,44 @@ section#request div#area-params div#params div#header-key-value {
     border-right: none;
 }
 
-section#request div#area-params div#params div#header-key-value span { 
+section#request div.area-default div#params div#header-key-value span { 
     display: inline-block;
     margin-left: 10px;
     font-weight: bold;
 }
 
-section#request div#area-params div#params div#header-key-value span#tag-key {
+section#request div.area-default div#params div#header-key-value span#tag-key {
     width: 30%;
 }
 
-section#request div#area-params div#params div#header-key-value span#tag-value {
+section#request div.area-default div#params div#header-key-value span#tag-value {
     width: 70%;
     padding-left: 10px;
     border-left: 1px solid gray;
 }
 
-section#request div#area-params div#params div.values {
+section#request div.area-default div#params div.values {
     display: flex;
 }
 
-section#request div#area-params div#params div.values input {
+section#request div.area-default div#params div.values input {
     padding-left: 10px;
     font-size: 14px;
     height: 40px;
 }
 
-section#request div#area-params div#params div.values input.key {
+section#request div.area-default div#params div.values input.key {
     width: 32%;
 }
 
-section#request div#area-params div#params div.values input.value {
+section#request div.area-default div#params div.values input.value {
     width: 68%;
 }
 
 /* Formatações área do response */
 section#area-response {
     display: flex;
+    flex-direction: column;
     width: 40%;
     border: 1px solid green;
 }
@@ -220,4 +221,27 @@ section#area-response h2::after {
     height: 4px;
     border-radius: 10px;
     background-color: darkgray;
+}
+
+section#area-response div#response-infos {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 10px;
+    border-bottom: 2px solid gray;
+}
+
+section#area-response div#response-infos span.item {
+    margin: 0 10px;
+    color: #2E2E2E;
+}
+
+section#area-response div#res,
+section#request div#req {
+    border: 1px solid lightgray;
+    margin: 10px 0;
+    height: calc(50vh);
+}
+
+section#request div#req {
+    height: 285px;
 }
