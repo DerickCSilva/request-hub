@@ -136,6 +136,8 @@ section#request div.area-default {
     display: flex;
     flex-direction: column;
     margin: 20px 0;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
 section#request div.area-default div.add-key-value {
@@ -195,6 +197,38 @@ section#request div.area-default div#params div.values input.key {
 
 section#request div.area-default div#params div.values input.value {
     width: 68%;
+}
+
+/* Formatações da área da Authorization */
+section#request div.area-default div#type-auth {
+    border-right: 1px solid darkgray;
+    padding: 100px 50px;
+}
+
+section#request div.area-default div#type-auth form {
+    display: flex;
+    align-items: center;
+}
+
+section#request div.area-default div#type-auth form label,
+section#request div.area-default div#bearer-auth  label {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+/* No Authorization */
+section#request div.area-default div#no-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+/* Bearer Token e Basic Auth */
+section#request div.area-default div#api-key,
+section#request div.area-default div#bearer-auth,
+section#request div.area-default div#basic-auth {
+    width: 57%;
 }
 
 /* Formatações área do response */

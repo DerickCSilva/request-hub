@@ -63,6 +63,35 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="area-default" style="flex-direction: row;">
+                <div id="type-auth">
+                    <form method="post" onsubmit="selectType(event)">
+                        <label for="type">Type:</label>
+                        <select class="form-select" name="type" id="type" style="cursor: pointer;">
+                            <option value="" selected disabled>Selecione abaixo</option>
+                            <option value="No Auth">No Auth</option>
+                            <option value="API Key">API Key</option>
+                            <option value="Bearer Token">Bearer Token</option>
+                            <option value="Basic Auth">Basic Auth</option>
+                        </select>
+                    </form>
+                </div>
+                <div id="no-auth" style="display: none;">
+                    This request does not use any authorization.
+                </div>
+                
+                <div id="api-key">{
+    "key": "value"
+}</div>
+                <div id="bearer-auth" style="display: none;">{
+    "Authorization": "Bearer token"    
+}</div>
+            <div id="basic-auth" style="display: none;">{
+    "Authorization": "Basic username:password"
+}</div>
+            </div>
+            
             <div class="area-default" style="display: none;">
                 <div class="add-key-value">
                     <button>
@@ -90,7 +119,7 @@
                 </div>
             </div>
 
-            <div class="area-default">
+            <div class="area-default" style="display: none;">
                 <div id="req">{
     
 }</div>
@@ -99,7 +128,7 @@
         <section id="area-response">
             <h2>Response</h2>
             <div id="response-infos">
-                <span class="item">Status: 200 ok</span>
+                <span class="item">Status: 200 OK</span>
             </div>
             <div id="res"></div>
         </section>
@@ -112,13 +141,37 @@
 <script>
     let request = ace.edit('req', {
         mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds'
+        theme: 'ace/theme/clouds',
+        fontSize: '14px',
+        wrap: true
     });
 
     let response = ace.edit('res', {
         mode: 'ace/mode/json',
         theme: 'ace/theme/clouds',
+        fontSize: '14px',
         readOnly: true
+    });
+
+    let bearer = ace.edit('bearer-auth', {
+        mode: 'ace/mode/json',
+        theme: 'ace/theme/clouds',
+        fontSize: '14px',
+        wrap: true
+    });
+
+    let basic = ace.edit('basic-auth', {
+        mode: 'ace/mode/json',
+        theme: 'ace/theme/clouds',
+        fontSize: '14px',
+        wrap: true
+    });
+
+    let apiKey = ace.edit('api-key', {
+        mode: 'ace/mode/json',
+        theme: 'ace/theme/clouds',
+        fontSize: '14px',
+        wrap: true
     });
 </script>
 
