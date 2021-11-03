@@ -17,7 +17,9 @@
         </a>
     </header>
     <main>
+        <!-- Lado esquerdo: Área de fazer req -->
         <section id="request">
+            <!-- Área onde seleciona o método, coloca a URI e faz a req  -->
             <div id="request-header">
                 <select class="form-select" name="method" id="method">
                     <option value="GET">GET</option>
@@ -29,6 +31,7 @@
                 <input type="text" class="form-control" name="uri" id="uri" placeholder="https://your-api.com/">
                 <button class="btn btn-primary">Send</button>
             </div>
+            <!-- Área onde seleciona a configuração que quer adicionar na req -->
             <div id="request-configs">
                 <ul>
                     <li class="active">Params</li>
@@ -37,7 +40,11 @@
                     <li>Body</li>
                 </ul>
             </div>
-            <div class="area-default" style="display: none;">
+
+            <!-- Aqui começa as div que aparecerão conforme seleção do user -->
+
+            <!-- Área para adicionar parâmetros na req -->
+            <div id="area-params" class="area-default" style="display: none;">
                 <div class="add-key-value">
                     <button>
                         <i class="fas fa-plus-circle"></i>
@@ -64,7 +71,8 @@
                 </div>
             </div>
             
-            <div class="area-default" style="flex-direction: row;">
+            <!-- Área para adicionar autorização na req -->
+            <div id="area-auth" class="area-default" style="flex-direction: row;">
                 <div id="type-auth">
                     <form method="post" onsubmit="selectType(event)">
                         <label for="type">Type:</label>
@@ -92,6 +100,7 @@
 }</div>
             </div>
             
+            <!-- Área para adicionar cabeçalhos na req -->
             <div class="area-default" style="display: none;">
                 <div class="add-key-value">
                     <button>
@@ -118,13 +127,16 @@
                     </div>
                 </div>
             </div>
-
+            
+            <!-- Área para adicionar o body da req -->
             <div class="area-default" style="display: none;">
                 <div id="req">{
     
 }</div>
             </div>
         </section>
+        
+        <!-- Lado esquerdo: Área de mostrar a resposta -->
         <section id="area-response">
             <h2>Response</h2>
             <div id="response-infos">
