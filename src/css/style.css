@@ -224,7 +224,7 @@ section#request div.area-default div#no-auth {
     font-weight: bold;
 }
 
-/* Bearer Token e Basic Auth */
+/* Áreas da API Key, Bearer Token e Basic Auth */
 section#request div.area-default div#api-key,
 section#request div.area-default div#bearer-auth,
 section#request div.area-default div#basic-auth {
