@@ -135,9 +135,17 @@ section#request div#request-configs ul li.active::after {
 section#request div.area-default {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     margin: 20px 0;
-    border: 1px solid gray;
     border-radius: 5px;
+}
+
+div#params,
+div#headers {
+    overflow-y: auto;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 section#request div.area-default div.add-key-value {
@@ -157,7 +165,7 @@ section#request div.area-default div.add-key-value button:hover {
     transform: scale(1.05);
 }
 
-section#request div.area-default div#params div#header-key-value {
+section#request div.area-default div#header-key-value {
     display: flex;
     width: 100%;
     border: 1px solid gray;
@@ -165,44 +173,44 @@ section#request div.area-default div#params div#header-key-value {
     border-right: none;
 }
 
-section#request div.area-default div#params div#header-key-value span { 
+section#request div.area-default div#header-key-value span { 
     display: inline-block;
     margin-left: 10px;
     font-weight: bold;
 }
 
-section#request div.area-default div#params div#header-key-value span#tag-key {
+section#request div.area-default div#header-key-value span#tag-key {
     width: 30%;
 }
 
-section#request div.area-default div#params div#header-key-value span#tag-value {
+section#request div.area-default div#header-key-value span#tag-value {
     width: 70%;
     padding-left: 10px;
     border-left: 1px solid gray;
 }
 
-section#request div.area-default div#params div.values {
+section#request div.area-default div.values {
     display: flex;
 }
 
-section#request div.area-default div#params div.values input {
+section#request div.area-default div.values input {
     padding-left: 10px;
     font-size: 14px;
     height: 40px;
 }
 
-section#request div.area-default div#params div.values input.key {
+section#request div.area-default div.values input.key {
     width: 32%;
 }
 
-section#request div.area-default div#params div.values input.value {
+section#request div.area-default div.values input.value {
     width: 68%;
 }
 
 /* Formatações da área da Authorization */
 section#request div.area-default div#type-auth {
     border-right: 1px solid darkgray;
-    padding: 100px 50px;
+    padding: 127px 50px;
 }
 
 section#request div.area-default div#type-auth form {
@@ -216,10 +224,18 @@ section#request div.area-default div#bearer-auth  label {
     cursor: pointer;
 }
 
-/* No Authorization */
+/* Authorization */
+section#request div#area-auth {
+    border: 1px solid gray;
+}
+
+/* Decision Auth e o Authorization */
+section#request div.area-default div#decision-auth, 
 section#request div.area-default div#no-auth {
+    width: 57%;
     display: flex;
     justify-content: center;
+    text-align: center;
     align-items: center;
     font-weight: bold;
 }
@@ -250,7 +266,7 @@ section#area-response h2::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -5px;
+    bottom: -10px;
     width: 100%;
     height: 4px;
     border-radius: 10px;
@@ -260,8 +276,9 @@ section#area-response h2::after {
 section#area-response div#response-infos {
     display: flex;
     justify-content: flex-end;
-    padding: 5px 10px;
-    border-bottom: 2px solid gray;
+    padding: 17px 0 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid gray;
 }
 
 section#area-response div#response-infos span.item {

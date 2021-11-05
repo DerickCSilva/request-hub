@@ -34,19 +34,19 @@
             <!-- Área onde seleciona a configuração que quer adicionar na req -->
             <div id="request-configs">
                 <ul>
-                    <li class="active">Params</li>
-                    <li>Authorization</li>
-                    <li>Headers</li>
-                    <li>Body</li>
+                    <li class="active" onclick="showDiv(this, document.getElementById('area-params'))">Params</li>
+                    <li onclick="showDiv(this, document.getElementById('area-auth'))">Authorization</li>
+                    <li onclick="showDiv(this, document.getElementById('area-headers'))">Headers</li>
+                    <li onclick="showDiv(this, document.getElementById('area-body'))">Body</li>
                 </ul>
             </div>
 
             <!-- Aqui começa as div que aparecerão conforme seleção do user -->
 
             <!-- Área para adicionar parâmetros na req -->
-            <div id="area-params" class="area-default" style="display: none;">
+            <div id="area-params" class="area-default">
                 <div class="add-key-value">
-                    <button>
+                    <button onclick="includeNewRow(params)">
                         <i class="fas fa-plus-circle"></i>
                         <span>Adicionar parâmetro</span>
                     </button>
@@ -57,39 +57,36 @@
                         <span id="tag-value">Value</span>
                     </div>
                     <div class="values">
-                        <input class="key" type="text" name="key" id="key" placeholder="Key">
-                        <input class="value" type="text" name="value" id="value" placeholder="Value">
-                    </div>
-                    <div class="values">
-                        <input class="key" type="text" name="key" id="key" placeholder="Key">
-                        <input class="value" type="text" name="value" id="value" placeholder="Value">
-                    </div>
-                    <div class="values">
-                        <input class="key" type="text" name="key" id="key" placeholder="Key">
-                        <input class="value" type="text" name="value" id="value" placeholder="Value">
+                        <input class="key" type="text" name="key" placeholder="Key">
+                        <input class="value" type="text" name="value" placeholder="Value">
                     </div>
                 </div>
             </div>
             
             <!-- Área para adicionar autorização na req -->
-            <div id="area-auth" class="area-default" style="flex-direction: row;">
+            <div id="area-auth" class="area-default" style="flex-direction: row; display: none;">
                 <div id="type-auth">
                     <form method="post" onsubmit="selectType(event)">
                         <label for="type">Type:</label>
-                        <select class="form-select" name="type" id="type" style="cursor: pointer;">
-                            <option value="" selected disabled>Selecione abaixo</option>
-                            <option value="No Auth">No Auth</option>
-                            <option value="API Key">API Key</option>
-                            <option value="Bearer Token">Bearer Token</option>
-                            <option value="Basic Auth">Basic Auth</option>
+                        <select class="form-select" name="type" id="type" style="cursor: pointer;" onchange="selectTypeAuth(this.value)">
+                            <option selected disabled>Selecione abaixo</option>
+                            <option value="no-auth">No Auth</option>
+                            <option value="api-key">API Key</option>
+                            <option value="bearer-auth">Bearer Token</option>
+                            <option value="basic-auth">Basic Auth</option>
                         </select>
                     </form>
                 </div>
+                
+                <div id="decision-auth">
+                    Select the type of the requisition authorization.
+                </div>
+
                 <div id="no-auth" style="display: none;">
                     This request does not use any authorization.
                 </div>
                 
-                <div id="api-key">{
+                <div id="api-key" style="display: none;">{
     "key": "value"
 }</div>
                 <div id="bearer-auth" style="display: none;">{
@@ -101,25 +98,17 @@
             </div>
             
             <!-- Área para adicionar cabeçalhos na req -->
-            <div class="area-default" style="display: none;">
+            <div id="area-headers" class="area-default" style="display: none;">
                 <div class="add-key-value">
-                    <button>
+                    <button onclick="includeNewRow(headers)">
                         <i class="fas fa-plus-circle"></i>
                         <span>Adicionar header</span>
                     </button>
                 </div>
-                <div id="params">
+                <div id="headers">
                     <div id="header-key-value">
                         <span id="tag-key">Key</span>
                         <span id="tag-value">Value</span>
-                    </div>
-                    <div class="values">
-                        <input class="key" type="text" name="key" id="key" placeholder="Key">
-                        <input class="value" type="text" name="value" id="value" placeholder="Value">
-                    </div>
-                    <div class="values">
-                        <input class="key" type="text" name="key" id="key" placeholder="Key">
-                        <input class="value" type="text" name="value" id="value" placeholder="Value">
                     </div>
                     <div class="values">
                         <input class="key" type="text" name="key" id="key" placeholder="Key">
@@ -129,7 +118,7 @@
             </div>
             
             <!-- Área para adicionar o body da req -->
-            <div class="area-default" style="display: none;">
+            <div id="area-body" class="area-default" style="display: none;">
                 <div id="req">{
     
 }</div>
@@ -150,41 +139,7 @@
 <script src="https://kit.fontawesome.com/9e997cf440.js" crossorigin="anonymous"></script>
 <script src="../json-viewer/ace.js"></script>
 
-<script>
-    let request = ace.edit('req', {
-        mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds',
-        fontSize: '14px',
-        wrap: true
-    });
-
-    let response = ace.edit('res', {
-        mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds',
-        fontSize: '14px',
-        readOnly: true
-    });
-
-    let bearer = ace.edit('bearer-auth', {
-        mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds',
-        fontSize: '14px',
-        wrap: true
-    });
-
-    let basic = ace.edit('basic-auth', {
-        mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds',
-        fontSize: '14px',
-        wrap: true
-    });
-
-    let apiKey = ace.edit('api-key', {
-        mode: 'ace/mode/json',
-        theme: 'ace/theme/clouds',
-        fontSize: '14px',
-        wrap: true
-    });
-</script>
+<script src="./js/divsJson.js"></script> <!-- Importando script que cria o json viewer -->
+<script src="./js/index.js"></script>
 
 </html>
